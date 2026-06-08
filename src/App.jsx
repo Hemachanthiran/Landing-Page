@@ -18,7 +18,7 @@ export default function App() {
       shortBio: 'B.Tech Pharmaceutical Technology student exploring the intersection of design and science.',
       longBio: 'I\'m a B.Tech Pharmaceutical Technology student with a passion for graphic design, visual communication, and research. My work focuses on creating meaningful visual solutions that bridge the gap between scientific concepts and user experience. I believe in the power of thoughtful design to communicate complex ideas simply.',
       email: 'your.email@example.com',
-      phone: '+91 XXXXX XXXXX'
+      phone: '+91 7358419133'
     },
 
     // Social & Profile Links (with brand colors)
