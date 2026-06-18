@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Landing page</title>
+    <style>
+        /* ============================================
+           CONFIGURATION VARIABLES - EASILY EDITABLE
+           ============================================ */
+        :root {
+            /* Background Image Path */
+            --bg-image: url('astronaut.jpg');
+            
+            /* Colors */
+            --primary-text: #000000;
+            --secondary-text: #000000;
+            --button-bg: #000000;
+            --button-hover: #222222;
+            --icon-color: #1a3a52;
+            
+            /* Spacing & Sizing */
+            --heading-size: 4.5rem;
+            --desc-size: 1.1rem;
+            --button-size: 1rem;
+            --icon-size: 2.5rem;
+            --gap-medium: 1.5rem;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            :root {
+                --heading-size: 2.5rem;
+                --desc-size: 0.95rem;
+                --button-size: 0.9rem;
+                --icon-size: 2rem;
+                --gap-medium: 1rem;
+            }
+        }
+
+        /* ============================================
+           RESET & BASE STYLES
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-family: 'Playfair Display', serif;
+            overflow-x: hidden;
+        }
+
+        /* ============================================
+           HERO SECTION
+           ============================================ */
+        .hero {
+            min-height: 100vh;
+            width: 100%;
+            background-image: var(--bg-image);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            gap: 2rem;
+        }
+
+        /* ============================================
+           HEADING
+           ============================================ */
+        .heading {
+            font-size: var(--heading-size);
+            color: var(--primary-text);
+            font-weight: 1000;
+            letter-spacing: 0.05em;
+            text-align: center;
+            line-height: 1.1;
+            text-shadow: none;
+        }
+
+        /* ============================================
+           DESCRIPTION TEXT
+           ============================================ */
+        .description {
+            font-size: var(--desc-size);
+            color: var(--secondary-text);
+            text-align: center;
+            line-height: 1.8;
+            letter-spacing: 0.5px;
+            max-width: 700px;
+            font-weight: 1000;
+        }
+
+        /* ============================================
+           CONTENT WRAPPER (Text Container)
+           ============================================ */
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            max-width: 700px;
+            animation: slideUp 0.8s ease-out;
+
+            position: relative;
+            z-index: 2;
+
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(4px);
+            
+            padding: 2rem 2.5rem;
+            border-radius: 20px;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ============================================
+           CTA BUTTON
+           ============================================ */
+        .cta-button {
+            display: inline-block;
+            padding: 0.9rem 2.5rem;
+            background-color: var(--button-bg);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: var(--button-size);
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .cta-button:hover {
+            background-color: var(--button-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(26, 58, 82, 0.3);
+        }
+
+        .cta-button:active {
+            transform: translateY(0);
+        }
+
+        /* ============================================
+           SOCIAL LINKS CONTAINER (Single Row)
+           ============================================ */
+        .social-container {
+            display: flex;
+            gap: var(--gap-medium);
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        /* Individual social link */
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: var(--icon-size);
+            height: var(--icon-size);
+            background-color: white;
+            border-radius: 50%;
+            color: #000000;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .social-link:hover {
+            .social-link[aria-label="Behance"] {color: #1769ff;}
+            .social-link[aria-label="LinkedIn"] {color: #0a66c2;}
+            .social-link[aria-label="Instagram"] {color: #e4405f;}
+            .social-link[aria-label="GitHub"] {color: #181717;}
+            .social-link[aria-label="Email"] {color: #ea4335;}
+        }
+
+        /* SVG icon styling */
+        .social-link i {
+            font-size: 1.2rem;
+        }
+
+        /* ============================================
+           RESPONSIVE ADJUSTMENTS
+           ============================================ */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 1rem;
+                gap: 1.5rem;
+            }
+
+            .content-wrapper {
+                gap: 1.5rem;
+            }
+
+            .social-container {
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .heading {
+                font-size: 2rem;
+            }
+
+            .description {
+                font-size: 0.9rem;
+            }
+
+            .social-container {
+                gap: 0.8rem;
+            }
+
+            .social-link {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div class="content-wrapper">
+            <h1 class="heading">CHANDRU</h1>
+            
+            <p class="description">
+                Hi, I'm Hemachanthiran, you know me as a Pharmaceutical Technologist and some know me as a Creative Designer. This space brings together my academic projects, research interests, and design portfolio, showcasing how I approach problem-solving through both innovation and visual storytelling.
+            </p>
+
+            <button class="cta-button" onclick="scrollToPortfolio()">VIEW MY PORTFOLIO</button>
+
+            <div class="social-container" id="socialContainer">
+                <!-- Social links will be generated here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        /* ============================================
+           SOCIAL MEDIA CONFIGURATION
+           EASILY EDITABLE - ADD/REMOVE/EDIT AS NEEDED
+           ============================================ */
+        const socialLinks = [
+            {
+                platform:'behance',
+                url:'https://behance.net',
+                label:'Behance',
+                icon:'<i class="fab fa-behance"></i>'
+            },
+            {
+                platform:'linkedin',
+                url:'https://linkedin.com',
+                label:'LinkedIn',
+                icon:'<i class="fab fa-linkedin-in"></i>'
+            },
+            {
+                platform: 'instagram',
+                url: 'https://instagram.com',
+                label: 'Instagram',
+                icon: '<i class="fab fa-instagram"></i>'
+            },
+            {
+                platform: 'github',
+                url: 'https://github.com',
+                label: 'GitHub',
+                icon: '<i class="fab fa-github"></i>'
+            },
+            {
+                platform: 'email',
+                url: 'mailto:hello@example.com',
+                label: 'Email',
+                icon:'<i class="fas fa-envelope"></i>'
+            }
+        ];
+
+        // Generate social links dynamically
+        function renderSocialLinks() {
+            const container = document.getElementById('socialContainer');
+            container.innerHTML = '';
+
+            socialLinks.forEach(link => {
+                const anchor = document.createElement('a');
+                anchor.href = link.url;
+                anchor.className = 'social-link';
+                anchor.title = link.label;
+                anchor.setAttribute('aria-label', link.label);
+                anchor.target = '_blank';
+                anchor.rel = 'noopener noreferrer';
+                anchor.innerHTML = link.icon;
+                container.appendChild(anchor);
+            });
+        }
+
+        // Scroll to portfolio (you can customize this)
+        function scrollToPortfolio() {
+            // Replace this with your actual portfolio section URL
+            window.location.href = '#portfolio';
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', renderSocialLinks);
+    </script>
+</body>
+</html>
