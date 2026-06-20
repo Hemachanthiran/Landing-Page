@@ -172,6 +172,39 @@
             transform: translateY(0);
         }
 
+        .career-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .career-btn {
+            display: inline-block;
+            padding: 0.9rem 2.5rem;
+            background-color: var(--button-bg);
+            color: white;
+
+            border: none;
+            border-radius: 50px;
+
+            font-size: var(--button-size);
+            font-weight: 600;
+            letter-spacing: 0.08em;
+
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            font-family: 'Playfair Display', serif;
+            min-width: 320px;
+        }
+
+        .career-btn:hover {
+            background-color: var(--button-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(26, 58, 82, 0.3);
+        }
+
         /* ============================================
            SOCIAL LINKS CONTAINER (Single Row)
            ============================================ */
@@ -199,15 +232,6 @@
         }
 
         .social-link:hover {
-            .social-link[aria-label="Behance"] {
-                color: #1769ff;
-            }
-            .social-link[aria-label="LinkedIn"] {
-                color: #0a66c2;
-            }
-            .social-link[aria-label="Instagram"] {
-                color: #e4405f;
-            }
             .social-link[aria-label="GitHub"] {
                 color: #181717;
             }
@@ -220,6 +244,40 @@
         .social-link i {
             font-size: 1.2rem;
         }
+        
+        .designer-links {
+            display: none;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .designer-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 50px;
+            height: 50px;
+
+            background: white;
+            border-radius: 50%;
+
+            text-decoration: none;
+
+            transition: all 0.3s ease;
+        }
+        
+        .designer-links i {
+            color: #000000 !important;
+            font-size: 1.5rem;
+        }
+
+        .designer-links a:hover {
+            transform: translateY(-5px);
+        }        
 
         /* ============================================
            RESPONSIVE ADJUSTMENTS
@@ -259,6 +317,19 @@
         }
     </style>
 </head>
+
+<script>
+function toggleDesignerLinks() {
+    const links = document.getElementById('designerLinks');
+
+    if (links.style.display === 'flex') {
+        links.style.display = 'none';
+    } else {
+        links.style.display = 'flex';
+    }
+}
+</script>
+
 <body>
     <section class="hero">
         <div class="content-wrapper">
@@ -266,10 +337,37 @@
             <h1 class="heading">HEY THERE!</h1>
             
             <p class="description">
-                Hi, I'm Hemachanthiran, you know me as a Pharmaceutical Technologist and some know me as a Creative Designer. This space brings together my academic projects, research interests, and design portfolio, showcasing how I approach problem-solving through both innovation and visual storytelling.
+                Hi, I'm Hemachanthiran, you know me as a Pharmaceutical Technologist and some know me as a Creative Designer. This space brings together my academic projects, research interests, and design portfolio, showcasing how I approach problem-solving through both innovation and visual storytelling. Check out my profiles!
             </p>
 
-            <button class="cta-button" onclick="scrollToPortfolio('https://hemachanthiran-portfolio.vercel.app/')">VIEW MY PORTFOLIO</button>
+        
+            <div class="career-buttons">
+                <button class="career-btn pharma-btn" 
+                    onclick="window.open('https://hemachanthiran-portfolio.vercel.app/', '_blank')">
+                    Pharmaceutical Technologist
+                </button>
+
+                <button class="career-btn designer-btn"
+                    onclick="toggleDesignerLinks()">
+                    Creative Designer
+                </button>
+            </div>
+
+            <div id="designerLinks" class="designer-links">
+
+                <a href="https://www.behance.net/hemachanthiran22" target="_blank">
+                    <i class="fab fa-behance"></i>
+                </a>
+
+                <a href="https://instagram.com/chandru.psd" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+                <a href="https://dribbble.com/YOUR_USERNAME" target="_blank">
+                    <i class="fab fa-dribbble"></i>
+                </a>
+
+            </div>
 
             <div class="social-container" id="socialContainer">
                 <!-- Social links will be generated here by JavaScript -->
@@ -284,22 +382,10 @@
            ============================================ */
         const socialLinks = [
             {
-                platform:'behance',
-                url:'https://www.behance.net/hemachanthiran22',
-                label:'Behance',
-                icon:'<i class="fab fa-behance"></i>'
-            },
-            {
                 platform:'linkedin',
                 url:'https://www.linkedin.com/in/hemachanthiran',
                 label:'LinkedIn',
                 icon:'<i class="fab fa-linkedin-in"></i>'
-            },
-            {
-                platform: 'instagram',
-                url: 'https://www.instagram.com/chandru.psd',
-                label: 'Instagram',
-                icon: '<i class="fab fa-instagram"></i>'
             },
             {
                 platform: 'github',
